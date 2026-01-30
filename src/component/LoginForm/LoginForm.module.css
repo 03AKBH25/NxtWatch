@@ -1,0 +1,78 @@
+.labelField {
+  font-family: 'Roboto';
+  font-size: 25px;
+  font-weight: bold;
+  color: #7e858e;
+}
+.inputField {
+  border: 1px solid #cbd5e1;
+  border-radius: 2px;
+  padding: 5px;
+  height: 30px;
+  color: #cbd5e1;
+  font-size: 20px;
+  font-family: 'Roboto';
+  width: 70%;
+}
+.parentCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+.mainCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 60%;
+  background-color: #f9f9f9;
+}
+.fieldcont {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: flex-start;
+}
+.siteLogoCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.siteLogo {
+  height: 100px;
+  width: 150px;
+}
+.checkboxcont {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  margin: 20px 0px;
+}
+.loginBtn {
+  background-color: #3b82f6;
+  color: #fff;
+  font-family: 'Roboto';
+  font-size: 20px;
+  width: 70%;
+  height: 30px;
+  padding: 5px;
+  text-align: center;
+}
+.errorMsg{
+  font-size: 15px;
+  color: #ff0000;
+  font-family: 'roboto';
+}
+.box{
+  border: 1px solid #cbd5e1;
+  color: #fff;
+  background-color: #3b82f6;
+  width: 18px;
+  height: 18px;
+}

@@ -1,0 +1,26 @@
+.mainCont {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.image {
+  height: 60%;
+  width: 60%;
+}
+.head {
+  font-family: 'Roboto';
+  font-size: 40px;
+  margin: 25px 0px;
+  color: #181818;
+  text-align: center;
+}
+.desc {
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: #475569;
+  text-align: center;
+}
