@@ -18,11 +18,13 @@ class LoginForm extends Component {
       username: e.target.value,
     })
   }
+
   updatePassword = e => {
     this.setState({
       password: e.target.value,
     })
   }
+
   updateShowPassword = () => {
     this.setState(prevState => ({
       showpassword: !prevState.showpassword,
@@ -39,10 +41,10 @@ class LoginForm extends Component {
     history.replace('/')
   }
 
-  onSubmitFailure = error_msg => {
+  onSubmitFailure = errorMsg => {
     this.setState({
       showerrormsg: true,
-      errorMsg: error_msg,
+      errorMsg,
     })
   }
 
@@ -82,6 +84,7 @@ class LoginForm extends Component {
       </div>
     )
   }
+
   renderPassword = () => {
     const {password, showpassword} = this.state
     return (
@@ -116,9 +119,10 @@ class LoginForm extends Component {
             <img
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
               className={styles.siteLogo}
+              alt="logo"
             />
           </div>
-          <form onSubmit={this.submitForm}>
+          <form onSubmit={this.submitForm} className={styles.formsCont}>
             {this.renderUsername()}
             {this.renderPassword()}
             <div className={styles.checkboxcont}>

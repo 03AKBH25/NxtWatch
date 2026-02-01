@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import {Component} from 'react'
 
 import ThemeContext from './context/themse'
+import MainLayout from './components/MainLayout'
 
 import ProtectedRoute from './components/ProtectedRoute'
 import Home from './components/Home'
@@ -11,6 +12,7 @@ import Trending from './components/Trending'
 import SavedVideo from './components/SavedVideo'
 import NotFound from './components/NotFound'
 import VideoDetail from './components/VideoDetail'
+import LoginForm from './components/LoginForm'
 
 class App extends Component {
   state = {
@@ -34,10 +36,10 @@ class App extends Component {
           }}
         >
           <Switch>
-            <Route exact path='/login' component={LoginForm} />
+            <Route exact path="/login" component={LoginForm} />
             <ProtectedRoute
               exact
-              path='/'
+              path="/"
               component={() => (
                 <MainLayout>
                   <Home />
@@ -46,7 +48,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path='/saved-video'
+              path="/saved-video"
               component={() => (
                 <MainLayout>
                   <SavedVideo />
@@ -55,7 +57,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path='/gaming'
+              path="/gaming"
               component={() => (
                 <MainLayout>
                   <Gaming />
@@ -64,7 +66,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path='/trending'
+              path="/trending"
               component={() => (
                 <MainLayout>
                   <Trending />
@@ -73,15 +75,15 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path='/video/:id'
+              path="/video/:id"
               component={() => (
                 <MainLayout>
                   <VideoDetail />
                 </MainLayout>
               )}
             />
-            <Route path='/not-found' component={NotFound} />
-            <Redirect to='/not-found' />
+            <Route path="/not-found" component={NotFound} />
+            <Redirect to="/not-found" />
           </Switch>
         </ThemeContext.Provider>
       </BrowserRouter>
