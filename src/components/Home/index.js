@@ -16,7 +16,7 @@ class Home extends Component {
     this.getVideos()
   }
 
-  ggetVideos = async () => {
+  getVideos = async () => {
     this.setState({isLoading: true})
 
     const jwtToken = Cookies.get('jwt_token')
@@ -53,19 +53,22 @@ class Home extends Component {
 
   render() {
     const {videoList, userInput, isLoading} = this.state
+
     return (
       <ThemeContext.Consumer>
         {value => {
           const {darkTheme} = value
           const displayTheme = darkTheme ? styles.dark : styles.light
+
           return (
             <div className={styles.parentCont}>
-              <div className={`${styles.mainCont} ${displayTheme}`}>
+              {/* Banner Section */}
+              <div className={`${styles.bannerCont} ${displayTheme}`}>
                 <div className={styles.bannerHead}>
                   <img
                     src={
                       darkTheme
-                        ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+                        ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
                         : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
                     }
                     className={styles.logo}
@@ -73,15 +76,20 @@ class Home extends Component {
                   />
                   <img src="" className={styles.cross} alt="cross" />
                 </div>
+
                 <p className={styles.desc}>
                   Buy Nxt Watch Premium prepaid plans with UPI
                 </p>
+
                 <button className={styles.btn} type="button">
                   GET IT NOW
                 </button>
               </div>
-              <div className={`${styles.mainCont} ${displayTheme}`}>
+
+              {/* Content Section */}
+              <div className={`${styles.contentCont} ${displayTheme}`}>
                 <input value={userInput} />
+
                 {isLoading ? (
                   <div>
                     <Loader
@@ -101,18 +109,30 @@ class Home extends Component {
                             className={styles.itemUrl}
                             alt="thumbnail"
                           />
-                          <div className={styles.titleCont}>
-                            <img
-                              src={video.channelProfileUrl}
-                              className={styles.image}
-                              alt="channel pic"
-                            />
-                            <h1 className={styles.title}>{video.title}</h1>
-                          </div>
-                          <h1 className={styles.name}>{video.channelName}</h1>
-                          <div className={styles.videoInfo}>
-                            <h1 className={styles.info}>{video.viewCount}</h1>
-                            <h1 className={styles.info}>{video.publishedAt}</h1>
+
+                          <div className={styles.descContainer}>
+                            <div className={styles.chImg}>
+                              <img
+                                src={video.channelProfileUrl}
+                                className={styles.image}
+                                alt="channel pic"
+                              />
+                            </div>
+                            <div className={styles.abc}>
+                              <h1 className={styles.title}>{video.title}</h1>
+                              <h1 className={styles.name}>
+                                {video.channelName}
+                              </h1>
+
+                              <div className={styles.videoInfo}>
+                                <h1 className={styles.info}>
+                                  {video.viewCount}
+                                </h1>
+                                <h1 className={styles.info}>
+                                  {video.publishedAt}
+                                </h1>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </li>

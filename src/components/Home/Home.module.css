@@ -1,0 +1,99 @@
+.parentCont {
+  height: 70vh;
+  width: 80vw;
+}
+
+.dark {
+  background-color: #181818;
+  color: #ebebeb;
+}
+
+.light {
+  background-color: #ebebeb;
+  color: #313131;
+}
+
+.bannerCont {
+  height: 30%;
+  width: 100%;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px 30px;
+}
+
+.bannerHead {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contentCont {
+  height: 70%;
+  width: 100%;
+  padding: 20px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.itemCard {
+  height: 350px;
+  width: 300px;
+}
+.itemUrl {
+  height: 200px;
+  width: 100%;
+}
+.descContainer {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 10px 10px 0px;
+}
+.chImg {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.image {
+  height: 20px;
+  width: 20px;
+  margin-top: 20px;
+}
+.abc {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ebebeb;
+}
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'roboto';
+}
+.name {
+  font-size: 10px;
+  font-family: 'roboto';
+}
+.videoInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.info {
+  font-size: 10px;
+  font-family: 'roboto';
+}

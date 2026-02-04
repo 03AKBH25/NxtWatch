@@ -16,7 +16,8 @@ import LoginForm from './components/LoginForm'
 
 class App extends Component {
   state = {
-    darkTheme: true,
+    darkTheme: false,
+    savedVideos: [],
   }
 
   changeTheme = () => {
@@ -25,60 +26,45 @@ class App extends Component {
     }))
   }
 
+  addSavedVideo = video => {
+    this.setState(prevState => ({
+      savedVideos: [...prevState.savedVideos, video],
+    }))
+  }
+
+  removeSavedVideo = id => {
+    this.setState(prevState => ({
+      savedVideos: prevState.savedVideos.filter(each => each.id !== id),
+    }))
+  }
+
   render() {
-    const {darkTheme} = this.state
+    const {darkTheme, savedVideos} = this.state
     return (
       <BrowserRouter>
         <ThemeContext.Provider
           value={{
             darkTheme,
             changeTheme: this.changeTheme,
+            savedVideos,
+            addSavedVideo: this.addSavedVideo,
+            removeSavedVideo: this.removeSavedVideo,
           }}
         >
           <Switch>
             <Route exact path="/login" component={LoginForm} />
+
             <ProtectedRoute
-              exact
               path="/"
               component={() => (
                 <MainLayout>
-                  <Home />
-                </MainLayout>
-              )}
-            />
-            <ProtectedRoute
-              exact
-              path="/saved-video"
-              component={() => (
-                <MainLayout>
-                  <SavedVideo />
-                </MainLayout>
-              )}
-            />
-            <ProtectedRoute
-              exact
-              path="/gaming"
-              component={() => (
-                <MainLayout>
-                  <Gaming />
-                </MainLayout>
-              )}
-            />
-            <ProtectedRoute
-              exact
-              path="/trending"
-              component={() => (
-                <MainLayout>
-                  <Trending />
-                </MainLayout>
-              )}
-            />
-            <ProtectedRoute
-              exact
-              path="/video/:id"
-              component={() => (
-                <MainLayout>
-                  <VideoDetail />
+                  <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/gaming" component={Gaming} />
+                    <Route exact path="/trending" component={Trending} />
+                    <Route exact path="/saved-video" component={SavedVideo} />
+                    <Route exact path="/video/:id" component={VideoDetail} />
+                  </Switch>
                 </MainLayout>
               )}
             />

@@ -1,0 +1,21 @@
+.parentCont {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.headerCont {
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.mainCont {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.mainCont > div:last-child {
+  flex: 1;
+  overflow-y: auto;
+}

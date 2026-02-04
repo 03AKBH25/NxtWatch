@@ -1,3 +1,4 @@
+import {withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import ThemeContext from '../../context/themse'
 import styles from './Header.module.css'
@@ -21,7 +22,7 @@ const Header = props => {
               <img
                 src={
                   displayTheme
-                    ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+                    ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
                     : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
                 }
                 className={styles.siteLogo}
@@ -64,4 +65,4 @@ const Header = props => {
   )
 }
 
-export default Header
+export default withRouter(Header)

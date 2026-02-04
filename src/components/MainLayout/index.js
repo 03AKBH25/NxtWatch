@@ -7,7 +7,9 @@ const MainLayout = props => {
 
   return (
     <div className={styles.parentCont}>
-      <Header />
+      <div className={styles.headerCont}>
+        <Header />
+      </div>
       <div className={styles.mainCont}>
         <Sidebar />
         <div>{children}</div>

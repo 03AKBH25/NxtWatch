@@ -1,0 +1,39 @@
+.parentCont {
+  width: 15vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark {
+  background-color: #313131;
+  color: #ebebeb;
+}
+
+.light {
+  background-color: #ebebeb;
+  color: #313131;
+}
+
+.navOptions {
+  height: 100%;
+  width: 100%;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  text-decoration: none;
+}
+
+.navLogo {
+  height: 20px;
+  width: 20px;
+}
+
+.navOption {
+  font-size: 15px;
+  font-family: 'Roboto';
+}
