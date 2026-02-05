@@ -15,13 +15,14 @@ const Header = props => {
       {value => {
         const {darkTheme, changeTheme} = value
         const displayTheme = darkTheme ? styles.dark : styles.light
+        const mainTheme = darkTheme ? styles.dark1 : styles.light1
 
         return (
-          <div className={`${styles.mainCont} ${displayTheme}`}>
+          <div className={`${styles.mainCont} ${mainTheme}`}>
             <div className={styles.logoCont}>
               <img
                 src={
-                  displayTheme
+                  darkTheme
                     ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
                     : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
                 }

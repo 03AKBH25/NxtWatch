@@ -29,9 +29,13 @@ class Home extends Component {
       method: 'GET',
     }
 
-    const response = await fetch(apiUrl, options)
+    try {
+      const response = await fetch(apiUrl, options)
 
-    if (response.ok) {
+      if (!response.ok) {
+        throw new Error('Failed to fetch videos')
+      }
+
       const fetchedData = await response.json()
 
       const updatedData = fetchedData.videos.map(video => ({
@@ -46,6 +50,12 @@ class Home extends Component {
 
       this.setState({
         videoList: updatedData,
+        isLoading: false,
+      })
+    } catch (error) {
+      console.error('Error fetching videos:', error)
+
+      this.setState({
         isLoading: false,
       })
     }
@@ -88,7 +98,7 @@ class Home extends Component {
 
               {/* Content Section */}
               <div className={`${styles.contentCont} ${displayTheme}`}>
-                <input value={userInput} />
+                <input value={userInput} className={styles.userValue} />
 
                 {isLoading ? (
                   <div>

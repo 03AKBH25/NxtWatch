@@ -12,7 +12,7 @@ const MainLayout = props => {
       </div>
       <div className={styles.mainCont}>
         <Sidebar />
-        <div>{children}</div>
+        <div className={styles.content}>{children}</div>
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import ReactPlayer from 'react-player'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import ThemeContext from '../../context/themse'
@@ -104,19 +105,31 @@ class VideoDetail extends Component {
     return (
       <div className={`${styles.parentCont} ${displayTheme}`}>
         <div className={styles.videoPlayerCont}>
-          <h1>Video Screen</h1>
+          {isLoading ? (
+            <div className={styles.loader}>
+              <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+            </div>
+          ) : (
+            <ReactPlayer
+              url={videoDetail.videoUrl}
+              controls
+              playing={false}
+              width="100%"
+              height="100%"
+            />
+          )}
         </div>
 
         <div className={styles.descCont}>
-          <h1>{videoDetail.title}</h1>
+          <h1 className={styles.descHead}>{videoDetail.title}</h1>
 
-          <div>
-            <div>
+          <div className={styles.videoOpt}>
+            <div className={styles.viewDet}>
               <p>{videoDetail.viewCount}</p>
               <p>{videoDetail.publishedAt}</p>
             </div>
 
-            <ul>
+            <ul className={styles.optionCont}>
               <li
                 className={`${styles.actionBtn} ${
                   isLiked ? styles.active : ''
@@ -135,33 +148,34 @@ class VideoDetail extends Component {
                 Dislike
               </li>
 
-              <li
-                className={`${styles.actionBtn} ${
-                  saveVideo ? styles.active : ''
-                }`}
-                onClick={this.onClickSave}
-              >
-                {saveVideo ? 'Saved' : 'Save Video'}
+              <li>
+                <button
+                  type="button"
+                  className={`${styles.actionBtn} ${
+                    saveVideo ? styles.active : ''
+                  }`}
+                  onClick={this.onClickSave}
+                >
+                  {saveVideo ? 'Saved' : 'Save Video'}
+                </button>
               </li>
             </ul>
           </div>
-
-          <div>
-            <div>
+          <hr className={styles.line} />
+          <div className={styles.channelCont}>
+            <div className={styles.channelDesc}>
               <img
                 src={videoDetail.channel.profileImageUrl}
                 className={styles.chLogo}
                 alt="channel logo"
               />
-              <div>
+              <div className={styles.videoDet}>
                 <h1>{videoDetail.channel.name}</h1>
                 <p>{videoDetail.channel.subscriberCount}</p>
               </div>
             </div>
 
-            <div>
-              <p>{videoDetail.description}</p>
-            </div>
+            <p className={styles.videoDesc}>{videoDetail.description}</p>
           </div>
         </div>
       </div>

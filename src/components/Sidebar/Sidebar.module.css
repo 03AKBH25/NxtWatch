@@ -1,8 +1,6 @@
 .parentCont {
   width: 15vw;
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
+  height: 90vh;
 }
 
 .dark {
@@ -13,11 +11,6 @@
 .light {
   background-color: #ebebeb;
   color: #313131;
-}
-
-.navOptions {
-  height: 100%;
-  width: 100%;
 }
 
 .navLink {

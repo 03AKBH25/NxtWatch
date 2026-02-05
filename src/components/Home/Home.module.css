@@ -1,6 +1,6 @@
 .parentCont {
-  height: 70vh;
-  width: 80vw;
+  min-height: 90vh;
+  width: 100%;
 }
 
 .dark {
@@ -23,6 +23,16 @@
   justify-content: space-around;
   padding: 20px 30px;
 }
+.btn{
+  width: 90px;
+  height: 40px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 10px;
+}
 
 .bannerHead {
   display: flex;
@@ -41,15 +51,17 @@ ul {
   list-style: none;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
 }
 .itemCard {
-  height: 350px;
-  width: 300px;
+  height: 380px;
+  width: 400px;
+  cursor: pointer;
 }
 .itemUrl {
-  height: 200px;
+  height: 250px;
   width: 100%;
 }
 .descContainer {
@@ -71,13 +83,18 @@ ul {
   width: 20px;
   margin-top: 20px;
 }
+.userValue {
+  margin-bottom: 10px;
+  width: 400px;
+  height: 30px;
+  font-size: 20px;
+}
 .abc {
   width: 90%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background-color: #ebebeb;
+  justify-content: space-around;
 }
 .title {
   font-size: 15px;
