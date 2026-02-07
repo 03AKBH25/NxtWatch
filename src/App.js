@@ -62,8 +62,8 @@ class App extends Component {
                     <Route exact path="/" component={Home} />
                     <Route exact path="/gaming" component={Gaming} />
                     <Route exact path="/trending" component={Trending} />
-                    <Route exact path="/saved-video" component={SavedVideo} />
-                    <Route exact path="/video/:id" component={VideoDetail} />
+                    <Route exact path="/saved-videos" component={SavedVideo} />
+                    <Route exact path="/videos/:id" component={VideoDetail} />
                   </Switch>
                 </MainLayout>
               )}

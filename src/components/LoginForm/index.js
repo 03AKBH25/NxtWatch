@@ -119,7 +119,7 @@ class LoginForm extends Component {
             <img
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
               className={styles.siteLogo}
-              alt="logo"
+              alt="website logo"
             />
           </div>
           <form onSubmit={this.submitForm} className={styles.formsCont}>

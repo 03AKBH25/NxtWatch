@@ -1,10 +1,13 @@
 .parentCont {
   width: 15vw;
   height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0px;
 }
-
 .dark {
-  background-color: #313131;
+  background-color: #181818;
   color: #ebebeb;
 }
 
@@ -22,11 +25,49 @@
 }
 
 .navLogo {
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
 }
 
 .navOption {
   font-size: 15px;
   font-family: 'Roboto';
+}
+.dark1 {
+  background-color: #fff;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.contactCont {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.contactHead {
+  font-size: 15px;
+  font-weight: bold;
+  color: #00306e;
+  font-family: 'roboto';
+  padding: 0px 10px;
+}
+.contactOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.contactItemLogo {
+  height: 25px;
+  width: 25px;
+}
+.contactDesc {
+  color: #00306e;
+  font-size: 15px;
+  font-family: 'roboto';
+  padding: 0px 10px;
 }

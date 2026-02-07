@@ -8,7 +8,7 @@ import styles from './Gaming.module.css'
 class Gaming extends Component {
   state = {
     gameList: [],
-    isLoading: false,
+    isLoading: true,
   }
 
   componentDidMount() {
@@ -55,13 +55,18 @@ class Gaming extends Component {
           return (
             <div className={styles.parentCont}>
               <div className={`${styles.headCont} ${displayTheme1}`}>
-                <img src="" className={styles.gameIcon} alt="game icon" />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/808/808439.png"
+                  className={styles.gameIcon}
+                  alt="game icon"
+                />
                 <h1 className={styles.gameHead}>Gaming</h1>
               </div>
               <div className={`${styles.contentCont} ${displayTheme2}`}>
                 {isLoading ? (
                   <div>
                     <Loader
+                      data-testid="loader"
                       type="ThreeDots"
                       color="#0b69ff"
                       height="50"
@@ -71,15 +76,17 @@ class Gaming extends Component {
                 ) : (
                   <ul className={styles.gameList}>
                     {gameList.map(games => (
-                      <Link to={`/video/${games.id}`} key={games.id}>
+                      <Link to={`/videos/${games.id}`} key={games.id}>
                         <li className={styles.item}>
                           <img
                             src={games.thumbnailUrl}
                             className={styles.gameImg}
-                            alt="game"
+                            alt="video thumbnail"
                           />
-                          <h1 className={styles.gameHead}>{games.title}</h1>
-                          <p className={styles.gameView}>{games.viewCount}</p>
+                          <p className={styles.gameHead}>{games.title}</p>
+                          <p className={styles.gameView}>
+                            {games.viewCount} Views
+                          </p>
                         </li>
                       </Link>
                     ))}

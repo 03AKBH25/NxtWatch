@@ -7,7 +7,7 @@
   padding: 10px 30px;
 }
 .dark1 {
-  background-color: #313131;
+  background-color: #181818;
 }
 .light1 {
   background-color: #ebebeb;
@@ -30,7 +30,11 @@
   width: 100%;
   height: 40px;
 }
-
+.link {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 .optionsCont {
   display: flex;
   list-style: none;

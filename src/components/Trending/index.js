@@ -8,7 +8,7 @@ import styles from './Trending.module.css'
 class Trending extends Component {
   state = {
     videoList: [],
-    isLoading: false,
+    isLoading: true,
   }
 
   componentDidMount() {
@@ -54,12 +54,18 @@ class Trending extends Component {
         {value => {
           const {darkTheme} = value
           const displayTheme = darkTheme ? styles.dark : styles.light
+          const displayTheme1 = darkTheme ? styles.dark1 : styles.light1
+          const displayTheme2 = darkTheme ? styles.light2 : styles.dark2
 
           return (
             <div className={`${styles.parentDiv} ${displayTheme}`}>
-              <div className={styles.titleCont}>
-                <img src="" className={styles.headImg} alt="trending" />
-                <h1>Trending</h1>
+              <div className={`${styles.titleCont} ${displayTheme1}`}>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/833/833472.png"
+                  className={styles.headImg}
+                  alt="trending"
+                />
+                <h1 className={styles.trending}>Trending</h1>
               </div>
               <div className={styles.contentCont}>
                 {isLoading ? (
@@ -74,25 +80,35 @@ class Trending extends Component {
                 ) : (
                   <ul className={styles.list}>
                     {videoList.map(video => (
-                      <li className={styles.item}>
-                        <Link to={`/video/${video.id}`} key={video.id}>
+                      <Link to={`/videos/${video.id}`} className={styles.link}>
+                        <li className={styles.item} key={video.id}>
                           <div className={styles.thumbImgCont}>
                             <img
                               src={video.thumbnailUrl}
-                              className={styles.img}
+                              className={styles.image}
                               alt="thumbnail"
                             />
                           </div>
                           <div className={styles.descCont}>
-                            <h1>{video.title}</h1>
-                            <p>{video.name}</p>
-                            <div>
-                              <p>{video.viewCount}</p>
-                              <p>{video.publishedArt}</p>
+                            <h1 className={`${styles.vHead} ${displayTheme2}`}>
+                              {video.title}
+                            </h1>
+                            <p className={`${styles.vName} ${displayTheme2}`}>
+                              {video.name}
+                            </p>
+                            <div className={styles.viewInfo}>
+                              <p
+                                className={`${styles.vCount} ${displayTheme2}`}
+                              >
+                                {video.viewCount}
+                              </p>
+                              <p className={`${styles.vDate} ${displayTheme2}`}>
+                                {video.publishedArt}
+                              </p>
                             </div>
                           </div>
-                        </Link>
-                      </li>
+                        </li>
+                      </Link>
                     ))}
                   </ul>
                 )}

@@ -1,0 +1,109 @@
+.parentCont {
+  height: 90vh;
+  width: 100%;
+}
+.dark {
+  background-color: #000;
+  color: #fff;
+}
+.light {
+  background-color: #fff;
+  color: #000;
+}
+.dark1 {
+  background-color: #0f0f0f;
+}
+.light1 {
+  background-color: #f4f4f4;
+}
+.titleCont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  gap: 15px;
+  height: 100px;
+}
+.headLogo {
+  height: 40px;
+  width: 40px;
+}
+.mainHead {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'roboto';
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.contentCont {
+  padding: 20px;
+}
+
+/* List */
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card Item */
+.item {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  gap: 15px;
+}
+
+/* Thumbnail Container */
+.thumbImgCont {
+  width: 25%;
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Description */
+.descCont {
+  width: 75%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.vHead {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.vName {
+  font-size: 15px;
+  margin: 0;
+}
+
+.viewInfo {
+  display: flex;
+  gap: 15px;
+}
+
+.vCount,
+.vDate {
+  margin: 0;
+  font-size: 14px;
+}

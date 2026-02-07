@@ -2,14 +2,20 @@
   min-height: 90vh;
   width: 100%;
 }
-
+.loaderCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 90vh;
+  align-items: center;
+}
 .dark {
-  background-color: #181818;
+  background-color: #000;
   color: #ebebeb;
 }
 
 .light {
-  background-color: #ebebeb;
+  background-color: #fff;
   color: #313131;
 }
 
@@ -23,7 +29,7 @@
   justify-content: space-around;
   padding: 20px 30px;
 }
-.btn{
+.btn {
   width: 90px;
   height: 40px;
   font-size: 10px;
@@ -56,17 +62,23 @@ ul {
   flex-wrap: wrap;
 }
 .itemCard {
-  height: 380px;
+  height: 350px;
   width: 400px;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 .itemUrl {
   height: 250px;
   width: 100%;
 }
+.userInputCont {
+  display: flex;
+  flex-direction: row;
+  border: none;
+}
 .descContainer {
   width: 100%;
-  height: 150px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   padding: 10px 10px 10px 0px;
@@ -88,6 +100,16 @@ ul {
   width: 400px;
   height: 30px;
   font-size: 20px;
+  border: 1px solid #e2e8f0;
+  background-color: transparent;
+}
+.searchBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 50px;
 }
 .abc {
   width: 90%;
@@ -113,4 +135,25 @@ ul {
 .info {
   font-size: 10px;
   font-family: 'roboto';
+}
+.cross {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+}
+.btn2 {
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }

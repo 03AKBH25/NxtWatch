@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import ThemeContext from '../../context/themse'
+import InternetIssue from '../InternetIssue' // ADDED
 import styles from './VideoDetail.module.css'
 
 class VideoDetail extends Component {
@@ -12,6 +13,7 @@ class VideoDetail extends Component {
     isLiked: false,
     isDisLiked: false,
     saveVideo: false,
+    isNetworkError: false, // ADDED
   }
 
   componentDidMount() {
@@ -49,7 +51,7 @@ class VideoDetail extends Component {
   }
 
   getVideoDetail = async () => {
-    this.setState({isLoading: true})
+    this.setState({isLoading: true, isNetworkError: false})
 
     const {match} = this.props
     const {id} = match.params
@@ -63,50 +65,68 @@ class VideoDetail extends Component {
       method: 'GET',
     }
 
-    const response = await fetch(apiUrl, options)
+    try {
+      // ADDED
+      const response = await fetch(apiUrl, options)
 
-    if (response.ok) {
-      const fetchedData = await response.json()
-      const video = fetchedData.video_details
+      if (response.ok) {
+        const fetchedData = await response.json()
+        const video = fetchedData.video_details
 
-      const updatedData = {
-        id: video.id,
-        title: video.title,
-        videoUrl: video.video_url,
-        thumbnailUrl: video.thumbnail_url,
-        viewCount: video.view_count,
-        publishedAt: video.published_at,
-        description: video.description,
-        channel: {
-          name: video.channel.name,
-          profileImageUrl: video.channel.profile_image_url,
-          subscriberCount: video.channel.subscriber_count,
-        },
+        const updatedData = {
+          id: video.id,
+          title: video.title,
+          videoUrl: video.video_url,
+          thumbnailUrl: video.thumbnail_url,
+          viewCount: video.view_count,
+          publishedAt: video.published_at,
+          description: video.description,
+          channel: {
+            name: video.channel.name,
+            profileImageUrl: video.channel.profile_image_url,
+            subscriberCount: video.channel.subscriber_count,
+          },
+        }
+
+        this.setState({
+          videoDetail: updatedData,
+          isLoading: false,
+        })
+      } else {
+        throw new Error('failure')
       }
-
-      this.setState({
-        videoDetail: updatedData,
-        isLoading: false,
-      })
-    } else {
-      this.setState({isLoading: false})
+    } catch (e) {
+      // ADDED
+      this.setState({isLoading: false, isNetworkError: true})
     }
   }
 
   render() {
-    const {videoDetail, isLoading, isDisLiked, isLiked, saveVideo} = this.state
+    const {
+      videoDetail,
+      isLoading,
+      isDisLiked,
+      isLiked,
+      saveVideo,
+      isNetworkError, // ADDED
+    } = this.state
     const {darkTheme} = this.context
     const displayTheme = darkTheme ? styles.dark : styles.light
 
-    if (isLoading || videoDetail === null) {
-      return <Loader />
+    if (isNetworkError) {
+      // ADDED
+      return <InternetIssue getUserVideos={this.getVideoDetail} />
+    }
+
+    if (videoDetail === null) {
+      return null
     }
 
     return (
       <div className={`${styles.parentCont} ${displayTheme}`}>
         <div className={styles.videoPlayerCont}>
           {isLoading ? (
-            <div className={styles.loader}>
+            <div className={` ${displayTheme} ${styles.loaderCont}`}>
               <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
             </div>
           ) : (
